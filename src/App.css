@@ -1,0 +1,103 @@
+/* Layout de 2 columnas */
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+/* Columna del perfil (estática) */
+.profile-column {
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Columna de contenido */
+.content-column {
+  width: 50%;
+  height: 100vh;
+  position: relative;
+}
+
+/* Línea de separación animada */
+.content-column::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 0;
+  background-color: #ffffff;
+  animation: fillLineVertical 2s ease-out 0.5s forwards;
+  z-index: 20;
+}
+
+/* Animación de la línea vertical */
+@keyframes fillLineVertical {
+  to {
+    height: 100%;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .app-layout {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .profile-column {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+  
+  .content-column {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  /* Ocultar línea vertical en móvil y cambiar por horizontal */
+  .content-column::before {
+    display: none;
+  }
+  
+  .content-column::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #ffffff;
+    animation: fillLineHorizontal 2s ease-out 0.5s forwards;
+  }
+}
+
+@keyframes fillLineHorizontal {
+  to {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-column {
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-layout {
+    overflow-x: hidden;
+  }
+  
+  .profile-column {
+    padding: 0;
+  }
+}
