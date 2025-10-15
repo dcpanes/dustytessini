@@ -8,11 +8,11 @@ function Profile({
   activeSection = "about",
   setActiveSection = () => {},
   socialLinks = {
-    github: "https://github.com/dustytessini",
-    linkedin: "https://linkedin.com/in/dustytessini",
-    instagram: "https://instagram.com/dustytessini",
-    facebook: "https://facebook.com/dustytessini",
-    email: "mailto:dusty@example.com"
+    github: "https://github.com/dcpanes",
+    linkedin: "https://www.linkedin.com/in/dusty-tessini/",
+    instagram: "https://www.instagram.com/dustypanes/",
+    facebook: "https://www.facebook.com/Dusty.cesar",
+    email: "mailto:dcpanes@gmail.com"
   }
 }) {
   const [languages, setLanguages] = useState([])
